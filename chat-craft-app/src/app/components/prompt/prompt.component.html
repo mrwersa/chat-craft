@@ -1,7 +1,0 @@
-<form [formGroup]="promptForm" (ngSubmit)="onSubmit()" class="prompt-container">
-    <div class="form-group mb-3">
-        <textarea class="form-control" id="prompt" formControlName="prompt"
-            placeholder="Describe the app you want to generate..."></textarea>
-    </div>
-    <button type="submit" class="btn btn-light w-100" [disabled]="promptForm.invalid || promptForm.get('prompt')!.value === ''" >Generate App</button>
-</form>

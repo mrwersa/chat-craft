@@ -1,10 +1,36 @@
+version: '3.8'
+
 services:
-   appsmith:
-     image: index.docker.io/appsmith/appsmith-ce
-     container_name: appsmith
-     ports:
-         - "80:80"
-         - "443:443"
-     volumes:
-         - ./stacks:/appsmith-stacks
-     restart: unless-stopped
+  appsmith:
+    image: index.docker.io/appsmith/appsmith-ce
+    container_name: appsmith
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./stacks:/appsmith-stacks
+    restart: unless-stopped
+
+  java-app:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: java-app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - appsmith
+    environment:
+      APPSMITH_API_URL: http://appsmith:80
+    restart: unless-stopped
+
+  ui-app:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.ui
+    container_name: ui-app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - java-app
+    restart: unless-stopped

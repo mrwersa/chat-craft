@@ -1,0 +1,29 @@
+<div class="container-fluid h-100 d-flex flex-column p-0">
+  <nav class="navbar navbar-expand-lg w-100">
+    <a class="navbar-brand" href="#">ChatCraft</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <!-- Removed Home (current) link -->
+      </ul>
+    </div>
+  </nav>
+
+  <div class="row flex-grow-1 d-flex m-0">
+    <div id="sidebar" class="sidebar bg-dark p-4" [ngClass]="{ 'collapsed': !sidebarVisible }">
+      <div class="toggle-button-container">
+        <button class="btn btn-light btn-sm" (click)="toggleSidebar()">
+          <span [ngClass]="{ 'icon-collapse': sidebarVisible, 'icon-expand': !sidebarVisible }"></span>
+        </button>
+      </div>
+      <app-prompt *ngIf="sidebarVisible" (promptSubmitted)="onPromptSubmitted($event)"></app-prompt>
+    </div>
+    <div [ngClass]="{ 'col-md-9': sidebarVisible, 'col-md-12': !sidebarVisible }"
+      class="content p-4 d-flex flex-grow-1">
+      <app-app-display [appUrl]="appUrl" class="w-100 h-100"></app-app-display>
+    </div>
+  </div>
+</div>

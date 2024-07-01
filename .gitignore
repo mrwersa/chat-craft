@@ -1,29 +1,50 @@
-# Java/Spring Boot specific ignores
-/target/
-/build/
-/.gradle/
-*.log
-/stacks/
-
-# IDE specific ignores (VSCode, IntelliJ, Eclipse, etc.)
-.vscode/
-/.idea/
-/*.iml
-/*.iws
-.classpath
-.project
-.settings/
-
-# OS specific ignores
+# Ignore OS-specific files
 .DS_Store
 Thumbs.db
 
-# Gradle specific ignores
+# Ignore log files
+*.log
+
+# Ignore IntelliJ IDEA files
+.idea/
+*.iml
+
+# Ignore VSCode files
+.vscode/
+
+# Ignore Docker-related files
+**/Dockerfile
+**/docker-compose.yml
+
+# Ignore environment files
+.env
+.env.local
+.env.production
+.env.test
+
+# Ignore stacks folder
+stacks/
+
+# Ignore Gradle files and build directories
 .gradle/
-/build/
+**/build/
 
-# Maven specific ignores
-.mvn/
+# Ignore Node modules and build files in frontend
+frontend/node_modules/
+frontend/dist/
 
-# macOS specific ignores
-.DS_Store
+# Ignore .editorconfig in frontend
+frontend/.editorconfig
+
+# Ignore target folder in backend
+backend/target/
+
+# Ignore generated files
+*.class
+*.jar
+*.war
+*.ear
+
+# Ignore coverage files
+coverage/
+*.lcov
