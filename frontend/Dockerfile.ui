@@ -27,6 +27,6 @@ COPY --from=build /app/dist/chat-craft-app /app/dist/chat-craft-app
 
 # Expose port 4000
 EXPOSE 4000
-d
+
 # Start the SSR server
 CMD ["node", "/app/dist/chat-craft-app/server/server.mjs"]
