@@ -11,7 +11,8 @@ public class CodeGenerationService {
     private final OpenAIService openAIService;
 
     public Mono<String> generateCode(String appName, String description) {
-        String prompt = "Generate a responsive web application named " + appName + " with the following description: "
+        String prompt = "Generate a responsive web application in Appsmith named " + appName
+                + ". The application should serve the following purpose: "
                 + description;
         return openAIService.generateCode(prompt);
     }

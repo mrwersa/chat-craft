@@ -35,6 +35,7 @@
     "strictTemplates": true
   },
   "include": [
-    "src/**/*.ts"
+    "src/**/*.ts",
+    "src/toggle-sidebar.js"
   ]
 }

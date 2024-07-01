@@ -23,6 +23,7 @@
     "@angular/ssr": "^18.0.6",
     "animate.css": "^4.1.1",
     "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
     "express": "^4.18.2",
     "rxjs": "~7.8.0",
     "sass": "^1.77.6",

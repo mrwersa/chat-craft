@@ -1,3 +1,12 @@
-<div *ngIf="appUrl" class="app-display animate__animated animate__fadeIn">
-    <iframe [src]="appUrl" width="100%" height="600px" frameborder="0"></iframe>
+<div *ngIf="loading" class="loader-container">
+    <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</div>
+<div *ngIf="!loading && appUrl" class="container-fluid h-100 d-flex justify-content-center align-items-center p-0">
+    <div class="row w-100 h-100 m-0">
+        <div class="col p-0">
+            <iframe [src]="appUrl" class="w-100 h-100 border rounded"></iframe>
+        </div>
+    </div>
 </div>
