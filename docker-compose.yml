@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   appsmith:
     image: index.docker.io/appsmith/appsmith-ce
@@ -11,11 +9,11 @@ services:
       - ./stacks:/appsmith-stacks
     restart: unless-stopped
 
-  backend-service:
+  chat-craft-service:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    container_name: backend-service
+    container_name: chat-craft-service
     ports:
       - "8080:8080"
     depends_on:
@@ -24,13 +22,13 @@ services:
       APPSMITH_API_URL: http://appsmith:80
     restart: unless-stopped
 
-  frontend-service:
+  chat-craft-app:
     build:
       context: ./frontend
       dockerfile: Dockerfile.ui
-    container_name: frontend-service
+    container_name: chat-craft-app
     ports:
-      - "3000:80"
+      - "3000:4000"
     depends_on:
-      - backend-service
+      - chat-craft-service
     restart: unless-stopped

@@ -5,9 +5,9 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "serve:ssr": "concurrently \"ng build --watch\" \"nodemon --watch dist/chat-craft-app/server --watch dist/chat-craft-app/browser --exec \\\"node dist/chat-craft-app/server/server.mjs\\\"\"",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "serve:ssr": "concurrently \"ng build --watch\" \"nodemon --watch dist/chat-craft-app/server --watch dist/chat-craft-app/browser --exec \\\"node dist/chat-craft-app/server/server.mjs\\\"\""
+    "test": "ng test"
   },
   "private": true,
   "dependencies": {

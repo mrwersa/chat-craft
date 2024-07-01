@@ -16,14 +16,17 @@ COPY . .
 # Build the application
 RUN npm run build
 
-# Stage 2: Use an official nginx image to serve the app
-FROM nginx:alpine
+# Stage 2: Use an official node image to run the SSR server
+FROM node:18-alpine
 
-# Copy the build output to the Nginx html folder
-COPY --from=build /app/dist/chat-craft-app /usr/share/nginx/html
+# Set the working directory
+WORKDIR /app
 
-# Expose port 80
-EXPOSE 80
+# Copy the built files from the previous stage
+COPY --from=build /app/dist/chat-craft-app /app/dist/chat-craft-app
 
-# Start Nginx server
-CMD ["nginx", "-g", "daemon off;"]
+# Expose port 4000
+EXPOSE 4000
+d
+# Start the SSR server
+CMD ["node", "/app/dist/chat-craft-app/server/server.mjs"]
