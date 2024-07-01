@@ -3,6 +3,7 @@
 /build/
 /.gradle/
 *.log
+/stacks/
 
 # IDE specific ignores (VSCode, IntelliJ, Eclipse, etc.)
 .vscode/
