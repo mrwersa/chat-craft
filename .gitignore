@@ -1,0 +1,28 @@
+# Java/Spring Boot specific ignores
+/target/
+/build/
+/.gradle/
+*.log
+
+# IDE specific ignores (VSCode, IntelliJ, Eclipse, etc.)
+.vscode/
+/.idea/
+/*.iml
+/*.iws
+.classpath
+.project
+.settings/
+
+# OS specific ignores
+.DS_Store
+Thumbs.db
+
+# Gradle specific ignores
+.gradle/
+/build/
+
+# Maven specific ignores
+.mvn/
+
+# macOS specific ignores
+.DS_Store

@@ -1,0 +1,11 @@
+@import "../node_modules/bootstrap/scss/bootstrap";
+@import "../node_modules/animate.css/animate.min.css";
+
+// General styles
+html,
+body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}

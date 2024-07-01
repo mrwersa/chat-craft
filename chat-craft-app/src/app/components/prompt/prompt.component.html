@@ -1,0 +1,8 @@
+<form [formGroup]="promptForm" (ngSubmit)="onSubmit()" class="form-inline justify-content-center">
+    <div class="input-group">
+        <input id="prompt" formControlName="prompt" class="form-control" placeholder="Enter your prompt" required>
+        <div class="input-group-append">
+            <button type="submit" class="btn btn-primary">Generate</button>
+        </div>
+    </div>
+</form>

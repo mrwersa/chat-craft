@@ -1,0 +1,11 @@
+<header class="header">
+  <h1 class="header-title">ChatCraft Application</h1>
+</header>
+
+<main class="main-content">
+  <app-app-display [appUrl]="appUrl"></app-app-display>
+</main>
+
+<footer class="footer">
+  <app-prompt (promptSubmitted)="onPromptSubmitted($event)"></app-prompt>
+</footer>

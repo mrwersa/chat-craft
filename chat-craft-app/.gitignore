@@ -1,0 +1,53 @@
+# Java/Spring Boot specific ignores
+/target/
+/build/
+/.gradle/
+*.log
+
+# IDE specific ignores (if using Eclipse, IntelliJ, etc.)
+.classpath
+.project
+.settings/
+
+# macOS specific ignores
+.DS_Store
+
+# Angular specific ignores
+/dist
+/tmp
+/out-tsc
+/bazel-out
+
+# Node
+/node_modules
+npm-debug.log
+yarn-error.log
+
+# Miscellaneous
+/.angular/cache
+.sass-cache/
+/connect.lock
+/coverage
+/libpeerconnection.log
+testem.log
+/typings
+/npm-debug.log*
+/yarn-debug.log*
+/yarn-error.log*
+
+# Visual Studio Code
+.vscode/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+lerna-debug.log*
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# Optional npm cache directory
+.npm
