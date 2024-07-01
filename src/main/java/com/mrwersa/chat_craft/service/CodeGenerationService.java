@@ -11,9 +11,14 @@ public class CodeGenerationService {
     private final OpenAIService openAIService;
 
     public Mono<String> generateCode(String appName, String description) {
-        String prompt = "Generate a responsive web application in Appsmith named " + appName
-                + ". The application should serve the following purpose: "
-                + description;
+        // Use markers or delimiters to wrap the generated code placeholder
+        String prompt = "Generate a responsive web application in Appsmith named \"" + appName
+                + "\". This application should serve the following description: \"" + description + "\". "
+                + "Include interactive components like forms and charts, "
+                + "and integrate with external APIs for data retrieval and manipulation. "
+                + "Ensure the design is user-friendly and optimized for performance. "
+                + "CODE_START_PLACEHOLDER "
+                + "CODE_END_PLACEHOLDER";
         return openAIService.generateCode(prompt);
     }
 }

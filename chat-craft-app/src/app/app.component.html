@@ -19,9 +19,6 @@
           <span [ngClass]="{ 'icon-collapse': sidebarVisible, 'icon-expand': !sidebarVisible }"></span>
         </button>
       </div>
-      <div class="d-flex justify-content-between align-items-center">
-        <h4 class="text-white mb-4" *ngIf="sidebarVisible">App Builder</h4>
-      </div>
       <app-prompt *ngIf="sidebarVisible" (promptSubmitted)="onPromptSubmitted($event)"></app-prompt>
     </div>
     <div [ngClass]="{ 'col-md-9': sidebarVisible, 'col-md-12': !sidebarVisible }"

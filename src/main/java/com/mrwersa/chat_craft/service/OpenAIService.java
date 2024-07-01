@@ -34,7 +34,19 @@ public class OpenAIService {
                 .bodyValue(new OpenAIRequest(prompt))
                 .retrieve()
                 .bodyToMono(OpenAIResponse.class)
-                .map(response -> response.getChoices().get(0).getText());
+                .map(this::extractGeneratedCode);
+    }
+
+    private String extractGeneratedCode(OpenAIResponse response) {
+        String generatedText = response.getChoices().get(0).getText();
+        // Find the start and end indexes of the generated code
+        int startIndex = generatedText.indexOf("CODE_START_PLACEHOLDER") + "CODE_START_PLACEHOLDER".length();
+        int endIndex = generatedText.indexOf("CODE_END_PLACEHOLDER");
+        if (startIndex != -1 && endIndex != -1 && endIndex > startIndex) {
+            return generatedText.substring(startIndex, endIndex).trim();
+        } else {
+            throw new IllegalStateException("Generated code not found in response");
+        }
     }
 
     @Data
