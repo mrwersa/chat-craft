@@ -36,6 +36,9 @@ frontend/dist/
 # Ignore .editorconfig in frontend
 frontend/.editorconfig
 
+# Ignore .angular cache in frontend
+frontend/.angular/cache/
+
 # Ignore target folder in backend
 backend/target/
 
