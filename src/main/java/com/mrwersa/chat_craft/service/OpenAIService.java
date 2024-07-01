@@ -8,11 +8,14 @@ import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @Service
 public class OpenAIService {
 
     private final WebClient webClient;
+    private static final Logger logger = Logger.getLogger(OpenAIService.class.getName());
 
     @Value("${openai.api.key}")
     private String apiKey;
@@ -45,7 +48,9 @@ public class OpenAIService {
         if (startIndex != -1 && endIndex != -1 && endIndex > startIndex) {
             return generatedText.substring(startIndex, endIndex).trim();
         } else {
-            throw new IllegalStateException("Generated code not found in response");
+            String errorMessage = "Generated code not found in response: " + generatedText;
+            logger.log(Level.SEVERE, errorMessage);
+            throw new IllegalStateException(errorMessage);
         }
     }
 

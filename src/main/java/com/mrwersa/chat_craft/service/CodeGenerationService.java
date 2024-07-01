@@ -17,8 +17,7 @@ public class CodeGenerationService {
                 + "Include interactive components like forms and charts, "
                 + "and integrate with external APIs for data retrieval and manipulation. "
                 + "Ensure the design is user-friendly and optimized for performance. "
-                + "CODE_START_PLACEHOLDER "
-                + "CODE_END_PLACEHOLDER";
+                + "Wrap the generated code between CODE_START_PLACEHOLDER and CODE_END_PLACEHOLDER.";
         return openAIService.generateCode(prompt);
     }
 }

@@ -45,4 +45,21 @@ public class AppsmithService {
                 .retrieve()
                 .bodyToMono(String.class);
     }
+
+    public Mono<GeneratedCodeResponse> updateAppInAppsmith(String appId, String appName, String description) {
+        return codeGenerationService.generateCode(appName, description)
+                .flatMap(generatedCode -> updateAppInAppsmith(appId, generatedCode)
+                        .map(updatedAppId -> new GeneratedCodeResponse(generatedCode,
+                                "App updated successfully with ID: " + updatedAppId, OffsetDateTime.now())));
+    }
+
+    private Mono<String> updateAppInAppsmith(String appId, String code) {
+        WebClient webClient = webClientBuilder.baseUrl(apiUrl).build();
+        return webClient.put()
+                .uri("/apps/{appId}", appId)
+                .bodyValue(new AppsmithRequest(code))
+                .retrieve()
+                .bodyToMono(AppsmithResponse.class)
+                .map(AppsmithResponse::getAppId);
+    }
 }
